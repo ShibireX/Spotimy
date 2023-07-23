@@ -30,39 +30,50 @@ struct HomeView: View {
                     LazyVGrid(columns: [GridItem()],
                               spacing: 0,
                               content: {
-                        NavigationLink {
-                            InsightView()
-                        } label: {
-                            RectangleView(content: Text("My Artists"))
-                                .background(mainColor)
+                        ForEach(MenuOption.allCases, id: \.self) { option in
+                            NavigationLink {
+                                ArtistListView()
+                            } label: {
+                                MenuItemView(option: option)
+                            }
                         }
-                        RectangleView(content: Text("My Tracks"))
-                            .background(mainColor)
-                        RectangleView(content: Text("My Genres"))
-                            .background(mainColor)
-                        RectangleView(content: Text("My Quizzes"))
-                            .background(mainColor)
                     })
                     .foregroundColor(textColor)
                 }
             }
             .navigationTitle("Home")
-            .modifier(NavigationBarShadowModifier())
             
         }
-        
     }
 }
 
-struct NavigationBarShadowModifier: ViewModifier {
-    func body(content: Content) -> some View {
-        ZStack(alignment: .top) {
-            content
-            LinearGradient(gradient: Gradient(colors: [Color.clear, Color.black.opacity(0.3)]), startPoint: .top, endPoint: .bottom)
-                .frame(height: 20)
+struct MenuItemView: View {
+    let option: MenuOption
+    let tintColor = ColorModel.accentColor
+    
+    var body: some View {
+        ZStack {
+            Image(option.rawValue)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .opacity(0.9)
+                .grayscale(1)
+                .colorMultiply(tintColor)
+            Text(option.rawValue)
+                .font(.title)
+                .shadow(radius: 5)
         }
     }
 }
+
+enum MenuOption: String, CaseIterable {
+    case artists = "My Artists"
+    case tracks = "My Tracks"
+    case genres = "My Genres"
+    case quizzes = "My Quizzes"
+}
+
+
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {

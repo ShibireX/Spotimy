@@ -16,11 +16,12 @@
 		DA14AD402A69BF8D005AC548 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = DA14AD3F2A69BF8D005AC548 /* KeychainAccess */; };
 		DA14AD422A69CC9B005AC548 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA14AD412A69CC9B005AC548 /* MainView.swift */; };
 		DA14AD442A69CE04005AC548 /* AuthorizationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA14AD432A69CE04005AC548 /* AuthorizationView.swift */; };
-		DA14AD462A69CE14005AC548 /* InsightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA14AD452A69CE14005AC548 /* InsightView.swift */; };
+		DA14AD462A69CE14005AC548 /* ArtistListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA14AD452A69CE14005AC548 /* ArtistListView.swift */; };
 		DA14AD482A6A05F6005AC548 /* LandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA14AD472A6A05F6005AC548 /* LandingView.swift */; };
 		DA14AD4A2A6A06F2005AC548 /* ColorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA14AD492A6A06F2005AC548 /* ColorModel.swift */; };
 		DA14AD4C2A6ACD45005AC548 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA14AD4B2A6ACD45005AC548 /* HomeView.swift */; };
 		DA14AD4F2A6B6E05005AC548 /* RectangleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA14AD4E2A6B6E05005AC548 /* RectangleView.swift */; };
+		DAD10B0A2A6CF46F00E8017A /* NavigationBarShadowModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD10B092A6CF46F00E8017A /* NavigationBarShadowModifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,11 +34,12 @@
 		DA14AD392A69B9A2005AC548 /* Spotify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spotify.swift; sourceTree = "<group>"; };
 		DA14AD412A69CC9B005AC548 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		DA14AD432A69CE04005AC548 /* AuthorizationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationView.swift; sourceTree = "<group>"; };
-		DA14AD452A69CE14005AC548 /* InsightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightView.swift; sourceTree = "<group>"; };
+		DA14AD452A69CE14005AC548 /* ArtistListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistListView.swift; sourceTree = "<group>"; };
 		DA14AD472A6A05F6005AC548 /* LandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingView.swift; sourceTree = "<group>"; };
 		DA14AD492A6A06F2005AC548 /* ColorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorModel.swift; sourceTree = "<group>"; };
 		DA14AD4B2A6ACD45005AC548 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		DA14AD4E2A6B6E05005AC548 /* RectangleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleView.swift; sourceTree = "<group>"; };
+		DAD10B092A6CF46F00E8017A /* NavigationBarShadowModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarShadowModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,7 +108,7 @@
 				DA14AD4D2A6B6DF8005AC548 /* HelperViews */,
 				DA14AD412A69CC9B005AC548 /* MainView.swift */,
 				DA14AD432A69CE04005AC548 /* AuthorizationView.swift */,
-				DA14AD452A69CE14005AC548 /* InsightView.swift */,
+				DA14AD452A69CE14005AC548 /* ArtistListView.swift */,
 				DA14AD472A6A05F6005AC548 /* LandingView.swift */,
 				DA14AD4B2A6ACD45005AC548 /* HomeView.swift */,
 			);
@@ -117,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				DA14AD4E2A6B6E05005AC548 /* RectangleView.swift */,
+				DAD10B092A6CF46F00E8017A /* NavigationBarShadowModifier.swift */,
 			);
 			path = HelperViews;
 			sourceTree = "<group>";
@@ -200,10 +203,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA14AD482A6A05F6005AC548 /* LandingView.swift in Sources */,
+				DAD10B0A2A6CF46F00E8017A /* NavigationBarShadowModifier.swift in Sources */,
 				DA14AD4A2A6A06F2005AC548 /* ColorModel.swift in Sources */,
 				DA14AD3A2A69B9A2005AC548 /* Spotify.swift in Sources */,
 				DA14AD422A69CC9B005AC548 /* MainView.swift in Sources */,
-				DA14AD462A69CE14005AC548 /* InsightView.swift in Sources */,
+				DA14AD462A69CE14005AC548 /* ArtistListView.swift in Sources */,
 				DA14AD4F2A6B6E05005AC548 /* RectangleView.swift in Sources */,
 				DA14AD4C2A6ACD45005AC548 /* HomeView.swift in Sources */,
 				DA14AD442A69CE04005AC548 /* AuthorizationView.swift in Sources */,
