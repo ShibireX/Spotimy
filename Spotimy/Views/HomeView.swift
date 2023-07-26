@@ -28,11 +28,20 @@ struct HomeView: View {
                 mainColor.ignoresSafeArea()
                 ScrollView {
                     LazyVGrid(columns: [GridItem()],
-                              spacing: 0,
+                              spacing: 1,
                               content: {
                         ForEach(MenuOption.allCases, id: \.self) { option in
                             NavigationLink {
-                                ArtistListView()
+                                switch option {
+                                    case .artists:
+                                        ArtistListView()
+                                    case .tracks:
+                                        TrackListView()
+                                    case .genres:
+                                        TrackListView()
+                                    case .quizzes:
+                                        TrackListView()
+                                }
                             } label: {
                                 MenuItemView(option: option)
                             }
@@ -55,6 +64,7 @@ struct MenuItemView: View {
         ZStack {
             Image(option.rawValue)
                 .resizable()
+                .frame(height: 270)
                 .aspectRatio(contentMode: .fit)
                 .opacity(0.9)
                 .grayscale(1)

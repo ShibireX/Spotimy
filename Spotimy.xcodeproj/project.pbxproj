@@ -21,7 +21,9 @@
 		DA14AD4A2A6A06F2005AC548 /* ColorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA14AD492A6A06F2005AC548 /* ColorModel.swift */; };
 		DA14AD4C2A6ACD45005AC548 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA14AD4B2A6ACD45005AC548 /* HomeView.swift */; };
 		DA14AD4F2A6B6E05005AC548 /* RectangleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA14AD4E2A6B6E05005AC548 /* RectangleView.swift */; };
-		DAD10B0A2A6CF46F00E8017A /* NavigationBarShadowModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD10B092A6CF46F00E8017A /* NavigationBarShadowModifier.swift */; };
+		DAB829F32A70576B003CF437 /* AudioPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB829F22A70576B003CF437 /* AudioPlayerView.swift */; };
+		DAB829F72A71A78E003CF437 /* TrackListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB829F62A71A78E003CF437 /* TrackListView.swift */; };
+		DAB829FA2A71A7F0003CF437 /* TimeFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB829F92A71A7F0003CF437 /* TimeFrame.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,7 +41,9 @@
 		DA14AD492A6A06F2005AC548 /* ColorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorModel.swift; sourceTree = "<group>"; };
 		DA14AD4B2A6ACD45005AC548 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		DA14AD4E2A6B6E05005AC548 /* RectangleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleView.swift; sourceTree = "<group>"; };
-		DAD10B092A6CF46F00E8017A /* NavigationBarShadowModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarShadowModifier.swift; sourceTree = "<group>"; };
+		DAB829F22A70576B003CF437 /* AudioPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerView.swift; sourceTree = "<group>"; };
+		DAB829F62A71A78E003CF437 /* TrackListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackListView.swift; sourceTree = "<group>"; };
+		DAB829F92A71A7F0003CF437 /* TimeFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFrame.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +99,7 @@
 		DA14AD372A69B988005AC548 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				DAB829F82A71A7D3003CF437 /* HelperModels */,
 				DA14AD392A69B9A2005AC548 /* Spotify.swift */,
 				DA14AD492A6A06F2005AC548 /* ColorModel.swift */,
 				DA0C22F92A6C7A2A00738957 /* Environment.swift */,
@@ -111,6 +116,7 @@
 				DA14AD452A69CE14005AC548 /* ArtistListView.swift */,
 				DA14AD472A6A05F6005AC548 /* LandingView.swift */,
 				DA14AD4B2A6ACD45005AC548 /* HomeView.swift */,
+				DAB829F62A71A78E003CF437 /* TrackListView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -119,9 +125,17 @@
 			isa = PBXGroup;
 			children = (
 				DA14AD4E2A6B6E05005AC548 /* RectangleView.swift */,
-				DAD10B092A6CF46F00E8017A /* NavigationBarShadowModifier.swift */,
+				DAB829F22A70576B003CF437 /* AudioPlayerView.swift */,
 			);
 			path = HelperViews;
+			sourceTree = "<group>";
+		};
+		DAB829F82A71A7D3003CF437 /* HelperModels */ = {
+			isa = PBXGroup;
+			children = (
+				DAB829F92A71A7F0003CF437 /* TimeFrame.swift */,
+			);
+			path = HelperModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -203,7 +217,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA14AD482A6A05F6005AC548 /* LandingView.swift in Sources */,
-				DAD10B0A2A6CF46F00E8017A /* NavigationBarShadowModifier.swift in Sources */,
+				DAB829F32A70576B003CF437 /* AudioPlayerView.swift in Sources */,
+				DAB829FA2A71A7F0003CF437 /* TimeFrame.swift in Sources */,
 				DA14AD4A2A6A06F2005AC548 /* ColorModel.swift in Sources */,
 				DA14AD3A2A69B9A2005AC548 /* Spotify.swift in Sources */,
 				DA14AD422A69CC9B005AC548 /* MainView.swift in Sources */,
@@ -212,6 +227,7 @@
 				DA14AD4C2A6ACD45005AC548 /* HomeView.swift in Sources */,
 				DA14AD442A69CE04005AC548 /* AuthorizationView.swift in Sources */,
 				DA14AD292A6869EE005AC548 /* SpotimyApp.swift in Sources */,
+				DAB829F72A71A78E003CF437 /* TrackListView.swift in Sources */,
 				DA0C22FA2A6C7A2A00738957 /* Environment.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

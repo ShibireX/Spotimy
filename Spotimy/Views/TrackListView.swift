@@ -1,26 +1,23 @@
 //
-//  ArtistListView.swift
+//  TrackListView.swift
 //  Spotimy
 //
-//  Created by Andreas Garcia on 2023-07-20.
+//  Created by Andreas Garcia on 2023-07-26.
 //
 
 import SwiftUI
 import Combine
 import SpotifyWebAPI
 
-struct ArtistListView: View {
+struct TrackListView: View {
     @EnvironmentObject var spotify: Spotify
-    @State private var topArtists: [Artist] = []
+    @State private var topTracks: [Track] = []
     
-    @State private var didRequestArtists = false
-    @State private var isLoadingArtists = false
-    @State private var artistsNotLoaded = false
-    @State private var loadArtistsCancellable: AnyCancellable? = nil
+    @State private var didRequestTracks = false
+    @State private var isLoadingTracks = false
+    @State private var tracksNotLoaded = false
+    @State private var loadTracksCancellable: AnyCancellable? = nil
     @State private var chosenTimeFrame: TimeFrame = TimeFrame.midTerm
-    
-    @State private var artistTopSongs: [String: URL] = [:]
-    @State private var loadSongsCancellable = Set<AnyCancellable>()
     
     @StateObject private var audioManager = AudioManager()
     
@@ -64,10 +61,10 @@ struct ArtistListView: View {
                             case .shortTerm:
                                 timeFrameString = "short_term"
                             }
-                            getTopArtists(timeFrame: timeFrameString)
+                            getTopTracks(timeFrame: timeFrameString)
                         }
-                        if topArtists.isEmpty {
-                            if isLoadingArtists {
+                        if topTracks.isEmpty {
+                            if isLoadingTracks {
                                 Spacer()
                                 HStack {
                                     ProgressView()
@@ -75,42 +72,39 @@ struct ArtistListView: View {
                                 }
                                 Spacer()
                             }
-                            else if artistsNotLoaded {
-                                Text("Could Not Load Artists")
+                            else if tracksNotLoaded {
+                                Text("Could Not Load Tracks")
                                     .font(.title)
                             }
                             else {
-                                Text("No Artists")
+                                Text("No Tracks")
                                     .font(.title)
                             }
                         }
                         else {
                             ScrollView {
-                                ForEach(topArtists, id: \.id) { artist in
+                                ForEach(topTracks, id: \.id) { track in
                                     HStack(alignment: .top) {
-                                        AsyncImage(url: artist.images?.largest?.url) { image in
+                                        AsyncImage(url: track.album?.images?.largest?.url) { image in
                                             image
                                                 .resizable()
                                                 .frame(width: 50, height: 50)
                                                 .aspectRatio(contentMode: .fit)
                                                 .cornerRadius(10)
                                         } placeholder: {
-                                            Image(systemName: "person.fill")
+                                            Image(systemName: "music.note")
                                                 .resizable()
                                                 .aspectRatio(contentMode: .fit)
                                                 .frame(width: 50, height: 50)
                                                 .foregroundColor(.gray)
                                                 .cornerRadius(10)
                                         }
-                                        Text(artist.name)
+                                        Text(track.name)
                                             .padding(.leading, 8)
                                             .padding(.top, 15)
                                             .frame(maxWidth: .infinity, alignment: .leading)
-                                            .onAppear {
-                                                getTopTracks(for: artist)
-                                            }
-                                        if let topTrack = artistTopSongs[artist.id!] {
-                                            AudioPlayerView(audioURL: topTrack)
+                                        if let playbackURL = track.previewURL {
+                                            AudioPlayerView(audioURL: track.previewURL!)
                                                 .environmentObject(audioManager)
                                         } else {
                                             Image(systemName: "play")
@@ -120,6 +114,8 @@ struct ArtistListView: View {
                                                 .padding(.top, 15)
                                                 .foregroundColor(accentColor)
                                         }
+                                        
+                                            
                                     }
                                 }
                                 .padding()
@@ -129,70 +125,47 @@ struct ArtistListView: View {
                     .foregroundColor(textColor)
                 }
         }
-        .navigationTitle("My Artists")
+        .navigationTitle("My Tracks")
         .onAppear {
-            if !self.didRequestArtists {
-                self.getTopArtists(timeFrame: "medium_term")
+            if !self.didRequestTracks {
+                self.getTopTracks(timeFrame: "medium_term")
             }
         }
     }
     
-    func getTopArtists(timeFrame: String) {
-        self.didRequestArtists = true
-        self.isLoadingArtists = true
-        self.topArtists = []
+    func getTopTracks(timeFrame: String) {
+        self.didRequestTracks = true
+        self.isLoadingTracks = true
+        self.topTracks = []
         
-        self.loadArtistsCancellable = spotify.spotifyAPI
-            .currentUserTopArtists(TimeRange(rawValue: timeFrame), limit: 20)
+        self.loadTracksCancellable = spotify.spotifyAPI
+            .currentUserTopTracks(TimeRange(rawValue: timeFrame), limit: 20)
             .receive(on: RunLoop.main)
             .sink(
                 receiveCompletion: { completion in
-                    self.isLoadingArtists = false
+                    self.isLoadingTracks = false
                     switch completion {
                         case .finished:
-                            self.artistsNotLoaded = false
+                            self.tracksNotLoaded = false
                         case .failure(let error):
-                            self.artistsNotLoaded = true
+                            self.tracksNotLoaded = true
                             print(error)
                     }
                 },
-                receiveValue: { topArtists in
-                    let artists = topArtists.items
+                receiveValue: { topTracks in
+                    let tracks = topTracks.items
                         .filter { $0.id != nil }
-                    self.topArtists.append(contentsOf: artists)
+                    self.topTracks.append(contentsOf: tracks)
                 })
     }
     
-    func getTopTracks(for artist: Artist) {
-        spotify.spotifyAPI.artistTopTracks("spotify:artist:" + artist.id!, country: "SE")
-            .receive(on: DispatchQueue.main)
-            .sink(
-                receiveCompletion: { completion in
-                    switch completion {
-                    case .finished:
-                        break
-                    case .failure(let error):
-                        print("Failed to fetch top tracks for artist \(artist.name): \(error)")
-                    }
-                },
-                receiveValue: { tracks in
-                    if let firstTrack = tracks.first {
-                        artistTopSongs[artist.id!] = firstTrack.previewURL
-                    } else {
-                        artistTopSongs[artist.id!] = nil
-                    }
-                }
-            )
-            .store(in: &loadSongsCancellable)
-    }
 }
 
-
-struct ArtistListView_Previews: PreviewProvider {
+struct TrackListView_Previews: PreviewProvider {
     static var spotify = Spotify()
     
     static var previews: some View {
-        ArtistListView()
+        TrackListView()
             .environmentObject(spotify)
     }
 }
