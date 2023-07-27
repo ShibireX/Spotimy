@@ -104,7 +104,7 @@ struct TrackListView: View {
                                             .padding(.top, 15)
                                             .frame(maxWidth: .infinity, alignment: .leading)
                                         if let playbackURL = track.previewURL {
-                                            AudioPlayerView(audioURL: track.previewURL!)
+                                            AudioPlayerView(audioURL: playbackURL)
                                                 .environmentObject(audioManager)
                                         } else {
                                             Image(systemName: "play")

@@ -38,8 +38,8 @@ struct HomeView: View {
                                     case .tracks:
                                         TrackListView()
                                     case .genres:
-                                        TrackListView()
-                                    case .quizzes:
+                                        GenresListView()
+                                    case .recommendations:
                                         TrackListView()
                                 }
                             } label: {
@@ -80,7 +80,7 @@ enum MenuOption: String, CaseIterable {
     case artists = "My Artists"
     case tracks = "My Tracks"
     case genres = "My Genres"
-    case quizzes = "My Quizzes"
+    case recommendations = "My Recommendations"
 }
 
 

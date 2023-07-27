@@ -24,6 +24,8 @@
 		DAB829F32A70576B003CF437 /* AudioPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB829F22A70576B003CF437 /* AudioPlayerView.swift */; };
 		DAB829F72A71A78E003CF437 /* TrackListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB829F62A71A78E003CF437 /* TrackListView.swift */; };
 		DAB829FA2A71A7F0003CF437 /* TimeFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB829F92A71A7F0003CF437 /* TimeFrame.swift */; };
+		DAB829FC2A71BF99003CF437 /* RecommendationsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB829FB2A71BF99003CF437 /* RecommendationsListView.swift */; };
+		DAB829FE2A71C119003CF437 /* GenresListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB829FD2A71C119003CF437 /* GenresListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,8 @@
 		DAB829F22A70576B003CF437 /* AudioPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerView.swift; sourceTree = "<group>"; };
 		DAB829F62A71A78E003CF437 /* TrackListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackListView.swift; sourceTree = "<group>"; };
 		DAB829F92A71A7F0003CF437 /* TimeFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFrame.swift; sourceTree = "<group>"; };
+		DAB829FB2A71BF99003CF437 /* RecommendationsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationsListView.swift; sourceTree = "<group>"; };
+		DAB829FD2A71C119003CF437 /* GenresListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenresListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +121,8 @@
 				DA14AD472A6A05F6005AC548 /* LandingView.swift */,
 				DA14AD4B2A6ACD45005AC548 /* HomeView.swift */,
 				DAB829F62A71A78E003CF437 /* TrackListView.swift */,
+				DAB829FB2A71BF99003CF437 /* RecommendationsListView.swift */,
+				DAB829FD2A71C119003CF437 /* GenresListView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -227,6 +233,8 @@
 				DA14AD4C2A6ACD45005AC548 /* HomeView.swift in Sources */,
 				DA14AD442A69CE04005AC548 /* AuthorizationView.swift in Sources */,
 				DA14AD292A6869EE005AC548 /* SpotimyApp.swift in Sources */,
+				DAB829FE2A71C119003CF437 /* GenresListView.swift in Sources */,
+				DAB829FC2A71BF99003CF437 /* RecommendationsListView.swift in Sources */,
 				DAB829F72A71A78E003CF437 /* TrackListView.swift in Sources */,
 				DA0C22FA2A6C7A2A00738957 /* Environment.swift in Sources */,
 			);
