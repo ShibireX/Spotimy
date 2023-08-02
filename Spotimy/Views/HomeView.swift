@@ -28,7 +28,7 @@ struct HomeView: View {
                 mainColor.ignoresSafeArea()
                 ScrollView {
                     LazyVGrid(columns: [GridItem()],
-                              spacing: 1,
+                              spacing: 0,
                               content: {
                         ForEach(MenuOption.allCases, id: \.self) { option in
                             NavigationLink {
@@ -40,18 +40,19 @@ struct HomeView: View {
                                     case .genres:
                                         GenresListView()
                                     case .recommendations:
-                                        TrackListView()
+                                        RecommendationsListView()
                                 }
                             } label: {
                                 MenuItemView(option: option)
                             }
+                            .shadow(color: Color.black.opacity(0.8), radius: 15, x: 0, y: 0)
                         }
                     })
                     .foregroundColor(textColor)
                 }
+                .padding(.bottom, -40)
             }
             .navigationTitle("Home")
-            
         }
     }
 }
